@@ -9,7 +9,7 @@ resource "aws_security_group" "allow_sample" {
 
   ingress = [
     {
-      description      = "TLS from VPC"
+      description      = "ALLOW_SAMPLE from VPC"
       from_port        = 22
       to_port          = 22
       protocol         = "tcp"
