@@ -50,3 +50,11 @@ resource "aws_instance" "sample" {
     Name = "sample"
   }
 }
+
+terraform {
+  backend "s3" {
+    bucket = "samplebucket-d60"
+    key    = "example/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
