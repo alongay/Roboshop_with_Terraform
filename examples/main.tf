@@ -20,7 +20,7 @@ terraform {
 module "ec2" {
   source = "./ec2"
   SGID   = module.sg.SGID
-  name   = "sample-${count.index}"
+  name   = ["new1", "new2"]
 }
 
 module "sg" {
