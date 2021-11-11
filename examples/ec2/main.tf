@@ -11,3 +11,7 @@ resource "aws_instance" "sample" {
 
 variable "SGID" {}
 variable "name" {}
+
+output "public_ip" {
+  value = aws_instance.sample.private_ip
+}
