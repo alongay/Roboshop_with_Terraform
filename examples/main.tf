@@ -14,6 +14,7 @@ module "ec2" {
   count  = 2
   source = "./ec2"
   SGID   = module.sg.SGID
+  name   = "sample-${count.index}"
 }
 
 module "sg" {
