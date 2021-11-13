@@ -8,7 +8,7 @@ resource "aws_instance" "cheap_worker" {
   ami                    = data.aws_ami.ami.id
   instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-049e9bd07e7efb3ad"]
-  wait_for_fulfillment   = true
+#  wait_for_fulfillment   = true
   tags = {
     Name = element(var.components, count.index)
   }
