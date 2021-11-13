@@ -14,11 +14,11 @@ resource "aws_instance" "sample" {
 }
 
 data "aws_ami" "ami" {
-  most_recent           = true
-  name_regex            = "^cent*"
-  owners                = ["973714476881"]
+  most_recent            = true
+  name_regex             = "^Cent*"
+  owners                 = ["973714476881"]
 }
 
 variable "components" {
-  default               = ["frontend", "mongodb", "catalogue", "cart", "user", "radis", "mysql", "shipping", "rebbitmq","payment"]
+  default                = ["frontend", "mongodb", "catalogue", "cart", "user", "radis", "mysql", "shipping", "rebbitmq","payment"]
 }
