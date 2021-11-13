@@ -21,8 +21,18 @@ resource "aws_instance" "cheap_worker" {
 #  value       = element(var.components, count.index)
 #}
 
+resource "aws_route53_record" "records" {
+  count                   = length(var.components)
+  zone_id                 = "Z06880571JE0CNPS6Z8S9"
+  name                    = "${element(var.components, count.index)}-dev.roboshop.internal"
+  type                    = "A"
+  ttl                     = "300"
+  records                 = [element(aws_instance.cheap_worker.*.private_ip, count.index)]
+  allow_overwrite         = true
+}
+
 resource "null_resource" "ansible" {
-#  depends_on = [aws_route53_record.records]
+  depends_on = [aws_route53_record.records]
   count      = length(var.components)
   provisioner "remote-exec" {
     connection {
@@ -48,3 +58,7 @@ data "aws_ami" "ami" {
 variable "components" {
   default                = ["frontend", "mongodb", "catalogue", "cart", "user", "radis", "mysql", "shipping", "rebbitmq","payment"]
 }
+
+#locals {
+#  COMP_NAME = element(var.components, count.index)
+#}
