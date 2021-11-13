@@ -12,6 +12,7 @@ resource "aws_instance" "sample" {
 
 variable "SGID" {}
 variable "name" {}
+
 variable "instance_type" {}
 
 #output "public_ip" {
