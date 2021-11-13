@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "us-east-1"
+}
+
 # Create EC2 instance
 resource "aws_instance" "sample" {
   count                  = length(var.components)
