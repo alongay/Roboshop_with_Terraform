@@ -12,7 +12,7 @@ resource "aws_instance" "sample" {
 data "aws_ami" "ami" {
   most_recent = true
   name_regex = "^centos*"
-  owners = [973714476881]
+  owners = ["973714476881"]
 }
 
 variable "components" {
